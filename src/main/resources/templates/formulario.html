@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registrar jugador</title>
+  <link rel="stylesheet" th:href="@{/estilos.css}" />
+</head>
+<body>
+<main>
+  <h1>Escuela de Fútbol Los Cerritos</h1>
+  <h2>Registrar un jugador</h2>
+
+  <form th:action="@{/jugadores}" th:object="${jugador}" method="post">
+
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" th:field="*{nombre}" required />
+
+    <label for="edad">Edad</label>
+    <input type="number" id="edad" th:field="*{edad}" required />
+
+    <label for="posicion">Posición</label>
+    <select id="posicion" th:field="*{posicion}">
+      <option value="Portero">Portero</option>
+      <option value="Defensa">Defensa</option>
+      <option value="Mediocampista">Mediocampista</option>
+      <option value="Delantero">Delantero</option>
+    </select>
+
+    <button type="submit">Guardar</button>
+  </form>
+
+  <p><a th:href="@{/jugadores}">Ver la lista de jugadores</a></p>
+</main>
+</body>
+</html>
