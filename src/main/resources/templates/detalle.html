@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Detalle del jugador</title>
+  <link rel="stylesheet" th:href="@{/estilos.css}" />
+</head>
+<body>
+<main>
+  <h1>Jugador #<span th:text="${numero}">1</span></h1>
+
+  <p><strong>Nombre:</strong> <span th:text="${jugador.nombre}">—</span></p>
+  <p><strong>Edad:</strong> <span th:text="${jugador.edad}">—</span></p>
+  <p><strong>Posición:</strong> <span th:text="${jugador.posicion}">—</span></p>
+
+  <p><a th:href="@{/jugadores}">Volver a la lista</a></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jugadores inscritos</title>
+  <link rel="stylesheet" th:href="@{/estilos.css}" />
+</head>
+<body>
+<main>
+  <h1>Jugadores inscritos</h1>
+  <p>Total registrados: <strong th:text="${total}">0</strong></p>
+
+  <p th:if="${total == 0}">Todavía no hay jugadores inscritos.</p>
+
+  <table th:if="${total > 0}">
+    <thead>
+      <tr>
+        <th>#</th><th>Nombre</th><th>Edad</th><th>Posición</th><th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="jugador, estado : ${jugadores}">
+        <td th:text="${estado.count}">1</td>
+        <td th:text="${jugador.nombre}">Nombre de ejemplo</td>
+        <td th:text="${jugador.edad}">0</td>
+        <td th:text="${jugador.posicion}">Posición</td>
+        <td><a th:href="@{/jugadores/{n}(n=${estado.count})}">Ver</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><a th:href="@{/jugadores/nuevo}">Registrar otro jugador</a></p>
+</main>
+</body>
+</html>
